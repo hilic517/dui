@@ -1,7 +1,7 @@
 <template>
   <view class="dui-gamelist" style="width: {{gamelistWidth}}">
     <view wx:for="{{gamelist}}" wx:for-item="game" wx:for-index="gameindex" wx:key="id" class="dui-game_{{showtype}}">
-      <navigator class="dui-game dui-game-in_{{showtype}}" app-id="{{game.appid}}" path="{{game.path}}" target="{{game.appid?'miniProgram':'self'}}" bindtap="openGame">
+      <navigator class="dui-game dui-game-in_{{showtype}}" app-id="{{game.appid}}" path="{{game.path}}" target="{{game.appid?'miniProgram':'self'}}" bindtap="openGame" data-eventkey="{{gameindex}}">
         <view class="dui-game__hd dui-game__hd-in_{{showtype}}"><image class="dui-game__thumb" src="{{game.icon}}" /></view>
         <view class="dui-game__bd dui-game__bd-in_{{showtype}}">
           <view class="dui-flex__item">
@@ -13,7 +13,7 @@
           </view>
         </view>
         <view class="dui-game__ft" wx:if="{{showtype == 'list'}}">
-          <dui-button type="beauty" size="small" plain>开始</dui-button>
+          <dui-button type="{{buttonType}}" size="small" plain="{{buttonPlant}}">开始</dui-button>
         </view>
       </navigator>
     </view>
@@ -58,6 +58,14 @@ export default {
     showdesc: {
       type: Number,
       value: 0
+    },
+    buttonType: {
+      type: String,
+      value: 'beauty'
+    },
+    buttonPlant: {
+      type: Boolean,
+      value: false
     }
   },
   data: {

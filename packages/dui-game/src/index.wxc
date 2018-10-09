@@ -1,0 +1,24 @@
+<template>
+  <view class="dui-game">
+    <view>DuiGame Component</view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: { }
+  },
+  behaviors: [ ],
+  properties: { },
+  data: { },
+  methods: { }
+}
+
+
+</script>
+
+<style>
+.dui-game {
+}
+</style>

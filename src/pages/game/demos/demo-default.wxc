@@ -1,0 +1,18 @@
+<template>
+  <dui-game></dui-game>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'dui-game': 'dui-game'
+    }
+  },
+  data: { },
+  methods: { }
+}
+</script>
+
+<style>
+</style>
