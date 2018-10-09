@@ -1,0 +1,68 @@
+<template>
+  <view class="dui-gamelist" style="width: {{gamelistWidth}}">
+    <view wx:for="{{gamelist}}" wx:for-item="game" wx:for-index="gameindex" wx:key="id" class="dui-game_{{showtype}}">
+      <navigator class="dui-game dui-game-in_{{showtype}}" app-id="{{game.appid}}" path="{{game.path}}" target="{{game.appid?'miniProgram':'self'}}" bindtap="openGame">
+        <view class="dui-game__hd dui-game__hd-in_{{showtype}}"><image class="dui-game__thumb" src="{{game.icon}}" /></view>
+        <view class="dui-game__bd dui-game__bd-in_{{showtype}}">
+          <view class="dui-flex__item">
+            <view class="dui-game__title dui-game__title-in_{{showtype}}">{{showtype == 'scroll' ? game.short_title : game.title}}<view wx:for="{{game.taglist}}" wx:for-item="tag" wx:for-index="tagindex" wx:key="title" class="dui-tag dui-tag_plain dui-tag_mini" style="color: {{tag.color}}" wx:if="{{showtype == 'list'}}">{{tag.title}}</view></view>
+            <view class="dui-game__ftitle dui-game__ftitle-in_{{showtype}}" wx:if="{{showdesc==1}}">{{game.desc}}</view>
+          </view>
+          <view class="dui-game__info" wx:if="{{showpeoples==1}}">
+            <view class="dui-flex__item dui-game__ftitle dui-game__ftitle-in_{{showtype}}"><view class="dui-icon dui-icon-contact"></view>{{showtype=='scroll'?game.peoplestext:game.peoples}}人在玩</view>
+          </view>
+        </view>
+        <view class="dui-game__ft" wx:if="{{showtype == 'list'}}"><button class="dui-btn dui-btn--danger dui-btn--small">开始</button></view>
+      </navigator>
+    </view>
+  </view>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: { }
+  },
+  behaviors: [ ],
+  properties: { },
+  data: { },
+  methods: { }
+}
+
+
+</script>
+
+<style>
+.dui-game{padding:20rpx 30rpx;position:relative;align-items:center}
+.dui-game,.dui-gamelist{background:#fff;display:flex}
+.dui-gamelist{flex-wrap:wrap;box-sizing:border-box}
+.dui-game_single{position:relative;padding:10rpx;flex:0 0 100%;box-sizing:border-box}
+.dui-game_grid{flex:0 0 50%}
+.dui-game_scroll{flex:0 0 168rpx}
+.dui-game_list{position:relative;flex:0 0 100%}
+.dui-game_list:after{content:" ";position:absolute;left:0;bottom:0;right:0;height:2rpx;border-bottom:1rpx solid #e5e5e5;color:#e5e5e5;left:20rpx}
+.dui-game_list:last-child:after{display:none}
+.dui-game-in_list{padding:20rpx}
+.dui-game-in_grid,.dui-game-in_scroll,.dui-game-in_single{margin:10rpx;padding:0;flex-direction:column}
+.dui-game__checkbox,.dui-game__hd{margin-right:20rpx}
+.dui-game__hd{width:128rpx;height:128rpx;line-height:128rpx;text-align:center;position:relative;font-size:0;display:block}
+.dui-game__hd-in_grid,.dui-game__hd-in_scroll,.dui-game__hd-in_single{margin:0}
+.dui-game__hd-in_list{margin-right:20rpx}
+.dui-game__hd-in_scroll{width:64px;height:64px;line-height:64px}
+.dui-game__bd{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:space-between;align-self:stretch;align-items:stretch;position:relative}
+.dui-game__bd-in_grid,.dui-game__bd-in_scroll,.dui-game__bd-in_single{padding:10rpx 0;text-align:center}
+.dui-game__info{display:flex;align-items:center;font-size:28rpx}
+.dui-game__info_price{color:#e64340;flex:1}
+.dui-game__extra{position:absolute;bottom:0;right:0}
+.dui-game__thumb{width:100%;height:100%;vertical-align:top;position:absolute;left:0;top:0;border-radius:20rpx}
+.dui-game__title{font-weight:400;font-size:28rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;word-wrap:break-word;word-break:break-all}
+.dui-game__title-in_scroll{font-size:26rpx}
+.dui-game__ftitle{color:#999;font-weight:400;font-size:24rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;word-wrap:break-word;word-break:break-all}
+.dui-game__desc{color:#999;font-size:26rpx;line-height:1.2}
+.dui-tag{margin-left: 5px;}
+
+.i-cell-icon__thumb{
+  width: 64px;
+  height: 64px;
+}
+</style>

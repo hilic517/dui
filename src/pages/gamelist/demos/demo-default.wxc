@@ -1,0 +1,18 @@
+<template>
+  <dui-gamelist></dui-gamelist>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'dui-gamelist': 'dui-gamelist'
+    }
+  },
+  data: { },
+  methods: { }
+}
+</script>
+
+<style>
+</style>
