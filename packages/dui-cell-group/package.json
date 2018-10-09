@@ -1,6 +1,6 @@
 {
   "name": "dui-cell-group",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "列表组 - 小程序组件",
   "main": "dist/index.js",
   "scripts": {},
