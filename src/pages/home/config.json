@@ -7,6 +7,30 @@
       "icon": "https://s10.mogucdn.com/mlcdn/c45406/171122_7al50lach13ji6jggj63d17h522dh_200x200.png",
       "pages": [
         {
+          "id": "cell-group",
+          "name": "列表组",
+          "icon": "",
+          "code": ""
+        },
+        {
+          "id": "cell",
+          "name": "列表",
+          "icon": "",
+          "code": ""
+        },
+        {
+          "id": "panel",
+          "name": "面板",
+          "icon": "",
+          "code": ""
+        },
+        {
+          "id": "button",
+          "name": "按钮",
+          "icon": "",
+          "code": ""
+        },
+        {
           "id": "gamelist",
           "name": "游戏列表",
           "icon": "",

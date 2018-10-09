@@ -20,13 +20,47 @@
 
 <script>
 export default {
-  config: {
-    usingComponents: { }
+  externalClasses: ['i-class'],
+  options: {
+    multipleSlots: true,
+    addGlobalClass: true
   },
-  behaviors: [ ],
-  properties: { },
-  data: { },
-  methods: { }
+  properties: {
+    gamelist: {
+      type: Object,
+      value: {},
+      observer(newval) {
+        var width = 'auto'
+        if (this.data.showtype === 'scroll') {
+          width = (newval.length * 84) + 'px'
+        }
+        this.setData({
+          gamelistWidth: width
+        })
+      }
+    },
+    showtype: {
+      type: String,
+      value: 'list'
+    },
+    showpeoples: {
+      type: Number,
+      value: 1
+    },
+    showdesc: {
+      type: Number,
+      value: 0
+    }
+  },
+  data: {
+    gamelistWidth: ''
+  },
+  methods: {
+    openGame (e) {
+      const game = this.data.gamelist[e.currentTarget.dataset.eventkey]
+      this.triggerEvent('itemclick', game)
+    }
+  }
 }
 
 

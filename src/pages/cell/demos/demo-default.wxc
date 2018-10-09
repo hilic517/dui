@@ -1,0 +1,18 @@
+<template>
+  <dui-cell></dui-cell>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'dui-cell': 'dui-cell'
+    }
+  },
+  data: { },
+  methods: { }
+}
+</script>
+
+<style>
+</style>
