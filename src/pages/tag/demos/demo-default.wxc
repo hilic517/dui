@@ -1,0 +1,23 @@
+<template>
+  <dui-tag type="border" color="red">标签一</dui-tag>
+  <dui-tag type="border" color="green">标签一</dui-tag>
+  <dui-tag type="border" color="bule">标签一</dui-tag>
+  <dui-tag type="border" color="yellow">标签一</dui-tag>
+  <dui-tag color="red">标签一</dui-tag>
+  <dui-tag color="green">标签一</dui-tag>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      'dui-tag': 'dui-tag'
+    }
+  },
+  data: { },
+  methods: { }
+}
+</script>
+
+<style>
+</style>

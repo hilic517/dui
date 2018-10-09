@@ -1,5 +1,6 @@
 <template>
-  <dui-gamelist></dui-gamelist>
+  <dui-gamelist gamelist="{{list}}" showtype="list" showdesc="1"></dui-gamelist>
+  <dui-gamelist gamelist="{{list}}" showtype="scroll" showdesc="1"></dui-gamelist>
 </template>
 
 <script>
@@ -9,7 +10,9 @@ export default {
       'dui-gamelist': 'dui-gamelist'
     }
   },
-  data: { },
+  data: {
+    list: JSON.parse('[{"id":52,"title":"武林大侠OL","short_title":"武林大侠","icon":"https://wxa.uwan5.com/d/images/2018/09/5baf3ba64e3ae.gif","qrcode":"https://wxa.uwan5.com/d/images/2018/09/5baf3bb4b86f0.jpeg","appid":"wx9820ec84069178ac","path":"/?scene=chid:chid241,subchid:dx001","peoples":886444,"pic1":"","pic2":"","tags":"8,2","desc":"打造最强武林阵容，共赴江湖跨服PK！","taglist":[{"title":"仙侠","color":"#8B572A"},{"title":"优质","color":"#5B0BD6"}],"peoplestext":"89万"},{"id":51,"title":"魔霸大陆OL","short_title":"魔霸大陆","icon":"https://wxa.uwan5.com/d/images/2018/09/5baf3ba651f6d.png","qrcode":"https://wxa.uwan5.com/d/images/2018/09/5baf3bb4bb53c.jpeg","appid":"wx294db2a5b308c345","path":"/?scene=chid:chid241,subchid:mb001","peoples":551770,"pic1":"","pic2":"","tags":"8,1","desc":"会呼吸的魔霸世界，家里没矿也能玩","taglist":[{"title":"仙侠","color":"#8B572A"},{"title":"火爆","color":"#FF5867"}],"peoplestext":"56万"},{"id":48,"title":"西游后传","short_title":"西游后传","icon":"http://mmbiz.qpic.cn/mmbiz_png/Pvrd5InOlHIZcEMbb0JeLFcaMibSSriaJzhXLFtRFqfgN5mhIskDN2pj2hAOANmlnyJibmTMiao9mwhQvJV0auUkFQ/0?wx_fmt=png/0","qrcode":"","appid":"wx78caa30cd32c16b9","path":"?channel=mengmob240","peoples":299954,"pic1":"","pic2":"","tags":"8,1","desc":"经典西游类游戏，全新改编","taglist":[{"title":"仙侠","color":"#8B572A"},{"title":"火爆","color":"#FF5867"}],"peoplestext":"30万"},{"id":47,"title":"驾考训练营","short_title":"驾考训练营","icon":"http://wxa.uwan5.com/d/images/2018/09/5b9ba75d4bada.png","qrcode":"","appid":"wx4c673942c1760016","path":"/pages/game/index?aid=22&bid=34","peoples":23446,"pic1":"","pic2":"","tags":"6,5","desc":"以真实模拟、挑战的方式学习驾考科目一","taglist":[{"title":"最新","color":"#88D566"},{"title":"奖金","color":"#4A90E2"}],"peoplestext":"3万"},{"id":50,"title":"萌犬变变变","short_title":"萌犬变变变","icon":"https://act.11h5.com/awybox/game_1532466402894.png","qrcode":"https://wxa.uwan5.com/d/images/2018/09/5badd774152e6.gif","appid":"","path":"/?chid=2352","peoples":941481,"pic1":"","pic2":"","tags":"6,3","desc":"向你讲述完整的小狗进化史","taglist":[{"title":"最新","color":"#88D566"},{"title":"休闲","color":"#FEAC24"}],"peoplestext":"95万"}]')
+  },
   methods: { }
 }
 </script>

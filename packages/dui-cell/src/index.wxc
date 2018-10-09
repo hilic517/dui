@@ -1,14 +1,14 @@
 <template>
-<view bindtap="handleTap" class="i-class i-cell {{ isLastCell ? 'i-cell-last' : '' }} {{ isLink ? 'i-cell-access' : '' }}">
-  <view class="i-cell-icon">
+<view bindtap="handleTap" class="dui-class dui-cell {{ isLastCell ? 'dui-cell-last' : '' }} {{ isLink ? 'dui-cell-access' : '' }}">
+  <view class="dui-cell-icon">
     <slot name="icon"></slot>
   </view>
-  <view class="i-cell-bd">
-    <view wx:if="{{ title }}" class="i-cell-text">{{ title }}</view>
-    <view wx:if="{{ label }}" class="i-cell-desc">{{ label }}</view>
+  <view class="dui-cell-bd">
+    <view wx:if="{{ title }}" class="dui-cell-text">{{ title }}</view>
+    <view wx:if="{{ label }}" class="dui-cell-desc">{{ label }}</view>
     <slot></slot>
   </view>
-  <view catchtap="navigateTo" class="i-cell-ft">
+  <view catchtap="navigateTo" class="dui-cell-ft">
     <block wx:if="{{value}}">{{ value }}</block>
     <block wx:else>
       <slot name="footer"></slot>
@@ -19,18 +19,15 @@
 
 <script>
 export default {
-  externalClasses: ['i-class'],
-
+  externalClasses: ['dui-class'],
   options: {
     multipleSlots: true
   },
-
   relations: {
-    '../cell-group/index': {
+    '../../dui-cell-group/dist/index': {
       type: 'parent'
     }
   },
-
   properties: {
     // 左侧标题
     title: {
@@ -63,27 +60,21 @@ export default {
       value: ''
     }
   },
-
   data: {
     isLastCell: true
   },
-
   methods: {
     navigateTo() {
       const {
         url
       } = this.data;
       const type = typeof this.data.isLink;
-
       this.triggerEvent('click', {});
-
       if (!this.data.isLink || !url || url === 'true' || url === 'false') return;
-
       if (type !== 'boolean' && type !== 'string') {
         console.log('isLink 属性值必须是一个字符串或布尔值，授受到的值为：' + this.data.isLink);
         return;
       }
-
       if (['navigateTo', 'redirectTo', 'switchTab', 'reLaunch'].indexOf(this.data.linkType) === -1) {
         console.log('linkType 属性可选值为 navigateTo，redirectTo，switchTab，reLaunch，授受到的值为：' + this.data.linkType);
         return;
@@ -97,7 +88,6 @@ export default {
         this.navigateTo();
       }
     },
-
     updateIsLastCell(isLastCell) {
       this.setData({
         isLastCell
@@ -107,10 +97,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 .dui-cell {
   position: relative;
-  padding: 12px 15px;
+  padding: 24rpx 30rpx;
   display: flex;
   background: #fff;
   align-items: center;
@@ -127,15 +117,15 @@ export default {
     transform-origin: 0 0;
     pointer-events: none;
     box-sizing: border-box;
-    border-bottom: 1px solid @splitLineColor;
-    left: 15px;
+    border-bottom: 2rpx solid @splitLineColor;
+    left: 30rpx;
     right: 0;
   }
   &-last::after {
     display: none;
   }
   &-icon {
-    margin-right: 5px;
+    margin-right: 10rpx;
     &:empty {
       display: none
     }
@@ -144,7 +134,7 @@ export default {
     flex: 1;
   }
   &-text {
-    line-height: 24px;
+    line-height: 48rpx;
     font-size: @size-font-base;
   }
   &-desc {
@@ -158,16 +148,16 @@ export default {
     color: @subHeadingColor;
   }
   &-access &-ft {
-    padding-right: 13px;
+    padding-right: 26rpx;
     &::after {
       content: " ";
       display: inline-block;
-      width: 6px;
-      height: 6px;
+      width: 12rpx;
+      height: 12rpx;
       position: absolute;
       top: 50%;
-      right: 2px;
-      border-width: 2px 2px 0 0;
+      right: 4rpx;
+      border-width: 4rpx 4rpx 0 0;
       border-color: @splitLineColor;
       border-style: solid;
       transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);

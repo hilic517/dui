@@ -1,7 +1,7 @@
 <template>
-<view class="i-class dui-panel">
-  <view wx:if="{{ title }}" class="i-panel-title {{ hideTop ? 'i-panel-title-hide-top' : '' }}">{{ title }}</view>
-  <view class="i-panel-content {{ hideBorder ? 'i-panel-without-border' : '' }}">
+<view class="dui-class dui-panel">
+  <view wx:if="{{ title }}" class="dui-panel-title {{ hideTop ? 'dui-panel-title-hide-top' : '' }}">{{ title }}</view>
+  <view class="dui-panel-content {{ hideBorder ? 'dui-panel-without-border' : '' }}">
     <slot></slot>
   </view>
 </view>
@@ -9,8 +9,7 @@
 
 <script>
 export default {
-  externalClasses: ['i-class'],
-
+  externalClasses: ['dui-class'],
   properties: {
     title: {
       type: String,
